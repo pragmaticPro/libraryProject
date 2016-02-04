@@ -1,0 +1,230 @@
+    <style>
+     .searchTitle {
+                   font-size:20px;
+                   color:cadetblue;
+                   padding-top: 10px;
+              }
+        .modal{
+                   font-size:20px;
+                   color:cadetblue;
+                   padding-top: 10px;
+        }
+  
+        .form{
+           font-size:20px;
+           color:aqua;
+        }
+ 
+        .table th {
+            text-align:center;
+            padding: 15px;
+        }
+        th{
+            color:cornflowerblue;  
+            padding: 15px;
+        }
+        tr td{
+            color:cornflowerblue;  
+            padding: 15px;
+        }
+        h3{
+            color:chocolate;
+        }
+        
+
+
+
+
+    </style>
+
+
+    <p class="searchTitle">Search Books here </p>
+    <form>
+        <div class="form-group form-inline">
+                            <label for="searchByTitle" class="sr-only">Search By Title Of Book</label>
+                            <input type="text" class="form-control" name="searchByTitle" placeholder="Book title" ng-Model="searchByTitle"/><button type="button" class="btn btn-success" data-toggle="modal" data-target="#titleSearchModal" ng-click="searchTitle(searchByTitle)"><span class="glyphicon glyphicon-search "/></button>
+
+
+                            <label for="searchByAuthor" class="sr-only">Search By Author of Book</label>
+                            <input type="text" class="form-control" name="searchByAuthor" placeholder="Author" ng-Model="searchByAuthor" /><button type="button" class="btn btn-success" data-toggle="modal" data-target="#authorSearchModal" ng-click="searchAuthor(searchByAuthor)"><span class="glyphicon glyphicon-search"/></button>
+
+
+               <label for="searchBySubject" class="sr-only">Search By Subject of Book</label>
+                            <input type="text" class="form-control" name="searchBySubject" placeholder="Subject" ng-Model="searchBySubject" /><button type="button" class="btn btn-success" data-toggle="modal" data-target="#subjectSearchModal" ng-click="searchSubject(searchBySubject)"><span class="glyphicon glyphicon-search"/></button>
+
+            </div>
+
+
+<!--        <div class="container">-->
+<!--
+           <div class="table-responsive">
+
+
+                <form class="form">
+                    <div class="hello table-responsive table table-condensed">
+
+                <ul class ="booklist list-group"ng-repeat="user in user.bookHiringHistory">
+                   <h4 class="list-group-item-heading">Title</h4>
+                    <li class="booklistitem list-group-item">{{user.title}}</li>
+                    <h4 class="list-group-item-heading">Author</h4>
+                    <li class="booklistitem list-group-item">{{user.author}}</li>
+
+                   </ul>
+
+
+                    </div>
+        </form>
+
+                </div>
+-->
+
+
+        <form class="form" >
+        <div class="table-responsive"  ng-show=updated==="checked"> 
+            <h3>Books Hired </h3>
+        <table class="table table-condensed">
+              <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Return Date</th>   
+            </tr>
+            <tr  ng-repeat="book in user.bookHiringHistory">
+                    <td>{{book.title}}</td>
+                    <td>{{book.author}}</td>
+                    <td>{{book.returnDate}}</td>
+            </tr>   
+
+            
+
+
+        </table>
+            </div>
+    </form>
+
+
+
+
+
+
+
+
+    <!--    <button class="btn btn-success" data-toggle="modal" data-target="#myModal">Launch modal</button>-->
+    <div class= "container">
+        <div id="titleSearchModal" class="modal fade" role="dialog">
+            <div class= "modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button class="close" data-dismiss="modal"></button>
+                        <h4 class="modal-title">Search Results</h4>
+                    </div>
+                    <div class="modal-body">
+
+
+                        <div class="panel panel-default">
+    <!--
+                            <div class="panel-heading">{{found}}</div>
+                               Search Results For:    {{title}}</br>
+    -->
+
+                            <div class="panel-body" ng-repeat="book in books">
+                                Author: {{book.author}}</br>
+                                Location:{{book.location}}</br>
+                                Copies: {{book.availableCopies}}</br>
+                <button  type="button" class="btn btn-Success"  ng-click="rentMe(book);updateHiringHistory(book)" >Rent Me</a></button>     
+
+                <button class="btn btn-primary btn-lg btn-block">  <li ng-repeat = "list in templateList" ng-click="setValue(list)"  ng-model="selectedDestination"    class="list-group-item list-group-item-info">{{list.name}}</li></button>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+                    </div>
+                </div>  
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- search By author -->
+
+    <div class="container">
+    <!--    <button class="btn btn-success" data-toggle="modal" data-target="#myModal">Launch modal</button>-->
+        <div class="modal" id="authorSearchModal">
+            <div class= "modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button class="close" data-dismiss="modal"></button>
+                        <h4 class="modal-title">Search Results</h4>
+                    </div>
+                    <div class="modal-body">
+
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">{{found}}</div>
+
+                               Search Results for:   {{author}}</br>
+                            <div class="panel-body" ng-repeat="book in books">
+                                Title :    {{book.title}}</br>
+                                Subject :  {{book.subject}} </br>
+                                Location:  {{book.location}}</br>
+                                Copies:    {{book.availableCopies}}</br>
+             <button type="button" class="btn btn-Success" ng-click="rentMe(book);updateHiringHistory(book)" >Rent Me</a></button>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+                    </div>
+                </div>  
+            </div>
+        </div>
+
+    </div>
+
+    <!-- search By subject -->    
+
+
+    <div class="container">
+    <!--    <button class="btn btn-success" data-toggle="modal" data-target="#myModal">Launch modal</button>-->
+        <div class="modal" id="subjectSearchModal">
+            <div class= "modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button class="close" data-dismiss="modal"></button>
+                        <h4 class="modal-title">Search Results</h4>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">{{found}}</div>
+
+                               Search Results for:   {{subject}}</br>
+                            <div class="panel-body" ng-repeat="book in books">
+
+
+                                Title :    {{book.title}} </br>
+                                Author:    {{book.author}} </br>
+                                Location:  {{book.location}}</br>
+                                Copies:    {{book.availableCopies}}</br>
+           <button type="button" class="btn btn-Success" ng-click="rentMe(book);updateHiringHistory(book)" ng-show=!book.checked>Rent Me</a></button>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+                    </div>
+                </div>  
+            </div>
+        </div>
+
+    </div>
+
+
+    </form>

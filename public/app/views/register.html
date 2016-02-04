@@ -1,0 +1,116 @@
+    <style>
+    .addTitle {
+                   font-size:20px;
+                   color:cadetblue;
+                   padding-top: 10px;
+              }
+
+    </style>
+
+
+    <div class = "container" ng-controller="registerController as register">
+    <p class="addTitle">Registeration Form </p>
+        <form class="form-horizontal">
+
+        <div class="form-group form-inline">
+            <div>
+            <input type ="text" name ="username" class="form-control" placeholder="username"ng-model="register.userData.username"/></div></br>
+            <div>
+            <input type ="text" name ="email" class="form-control" placeholder="email"ng-model="register.userData.email"/></div></br>
+            <div>
+        <input type="password" name="password" placeholder="password" class="form-control" ng-model="register.userData.password"/></div></br>
+        <div>
+       <button type="button" class="btn btn-success" ng-click="register.signupUser()">Register</button>
+        </div>
+
+        </form>
+
+
+    </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <!--
+    <style>
+     .addTitle {
+                   font-size:20px;
+                   color:cadetblue;
+                   padding-top: 10px;
+              }
+        .msg{
+            color:aquamarine;
+            font-size:15px;
+        }
+        p{
+            color:cadetblue;
+            font-size:25px;
+        }
+        .register{
+            border:1px solid cadetblue;
+            width:20%;
+            height:30px;
+            padding:2px;
+            margin:10px;
+            background-color: blanchedalmond;
+        }
+
+
+
+    </style>
+
+
+    <div class="container">
+        <form name="registerForm" class="form form-horizontal">
+            <p class="addTitle">Registeration Form </p>
+            <div class="form-group form-inline">
+
+            <div>
+                <label for="username" class="sr-only">Username:</label>
+                <input class=" form-control register"type="text" name="username" placeholder ="username" ng-model="user.username" required minlength="5"/>
+            <div class ="msg" ng-messages="registerForm.username.$error" ng-show= "registerForm.username.$touched" ng-keypress="registerForm.$submitted=false">
+                <div ng-message="required">You did not enter a field</div>
+                <div ng-message="minlength">The value entered is too short</div>
+            </div>
+          </div>
+
+
+          <div>
+                <label for="email" class="sr-only">Email:</label>
+                <input class="form-control register"type="email" name="email" placeholder ="email" ng-model="user.email" required minlength="5" ng-keypress="registerForm.$submitted=false"/>
+
+                <div class="msg" ng-messages="registerForm.email.$error" ng-show="registerForm.email.$touched" ng-keypress="registerForm.$submitted=false">
+                    <div ng-message="required">You did not enter a field</div>
+                    <div ng-message="minlength">The value entered is too short</div>
+                </div>
+
+
+            </div>
+            <div>
+                <label for="password" class="sr-only">Password:</label>
+                <input class="form-control register"type="password" name="password" ng-model="user.password" placeholder="password" required minlength="5"/>
+                <div class="msg" ng-messages="registerForm.password.$error" ng-show="registerForm.password.$touched" ng-keypress="registerForm.$submitted=false">
+                    <div ng-message="required">You did not enter a field</div>
+                    <div ng-message="minlength">The value entered is too short </div>
+        </div>
+            </div>
+
+                 <button type="button" class="btn btn-success" ng-click="registerMe()">Register Me</button>
+                <p >You are now registered</p>
+            </div>
+
+
+        </form>
+
+
+
+    </div>-->

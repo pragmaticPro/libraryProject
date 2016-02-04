@@ -1,0 +1,88 @@
+        <style>
+            div{
+                display:inline;
+            }
+            .form{
+               font-size:20px;
+               color:aqua;
+            }
+            #navlist li
+            {
+                display: inline;
+                list-style-type: none;
+                padding-right: 20px;
+
+            }
+            .table th {
+                text-align:center;
+                padding: 15px;
+
+            }
+            tr td{
+                color:cornflowerblue;  
+                padding: 15px;
+            }
+            li{
+                margin:0 auto;
+                text-align:center;
+            }
+            ul{
+                list-style: none;
+            }
+
+            h2,h4{
+                 background-color: burlywood;
+                color:chocolate;
+                margin:0 auto;
+                text-align:center;
+                width:200px;
+            }
+            .left{
+                text-align: left;
+
+            }
+
+
+        </style> 
+
+        <form class="form">
+        <div class ="container" ng-controller="userController as userCtrl">
+
+            <table class="table" ng-init="userCtrl.getProfile()">
+
+            <table class="table" ng-repeat ="user in userCtrl.users">
+
+            <h3>Books Hired</h3>  
+                <tr class="row">
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Return Date </th>
+                    <th>Return </th>
+                    <th>Status </th>
+                    <th>Penalty </th>
+
+                </tr>
+                <tr class="row" ng-repeat="book in user.bookHiringHistory">
+
+                    <td>{{book.title}}</td>
+                    <td>{{book.author}}</td>
+                    <td>{{book.returnDate}}</td>
+            <td><input type="checkbox" ng-click="userCtrl.returnBook(book.title);userCtrl.updateStock(book)" ng-show=!book.checked /></td>
+                    <td>{{book.status}}</td>
+                    <td>{{book.penalty}}</td>
+                    <p>{{userCtrl.message}}</p>
+                </tr>
+            </table>  
+
+
+
+            </table>
+           </div>
+
+          </form>
+
+
+
+
+
+

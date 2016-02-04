@@ -1,0 +1,57 @@
+<style>
+    div{
+        display:inline;
+    }
+    .form{
+       font-size:20px;
+       color:aqua;
+    }
+    .table th {
+        text-align:center;
+        padding: 15px;
+       
+    }
+    tr td{
+        color:cornflowerblue;  
+        padding: 15px;
+    }
+    li{
+        margin:0 auto;
+        text-align:center;
+    }
+    ul{
+        list-style: none;
+    }
+    
+
+    
+</style> 
+ 
+
+
+
+<form class="form">
+<div class ="container" ng-controller="userController as userCtrl">
+
+    <table class="table" ng-init="userCtrl.allUsers()">
+        
+  <h3> Registered Users</h3>
+    <tr>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Password</th>
+        <th>Delete User</th>
+    </tr>
+    <tr ng-repeat="user in userCtrl.users">
+        <td>{{user.username}}</td>    
+        <td>{{user.email}}</td>
+        <td>{{user.password}}</td>
+        <td><input type="checkbox" ng-click="userCtrl.deleteUser(user._id)"/></td>
+    
+    </tr>    
+        
+ 
+    
+    </table>
+   </div>
+  </form>

@@ -1,0 +1,52 @@
+    <style>
+        .form{
+           font-size:20px;
+           color:aqua;
+        }
+        .table th {
+            text-align:center;
+            padding: 15px;
+        }
+        tr td{
+            color:cornflowerblue;  
+            padding: 15px;
+        }
+        h3{
+            color:chocolate;
+        }
+
+
+    </style>
+
+        <form class="form">
+        <div class="table-responsive" ng-init="showBooks()">
+        <table class="table table-condensed" ng-show=checked==="checked">
+            <h3>Current Stock</h3>
+    <!--    <button type="button" class="btn btn-success" ng-click="showBooks()">View Books</button>-->
+              <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Subject</th>
+                <th>Location</th>
+                <th>TotalCopies</th>
+                <th>AvailableCopies</th>
+                <th>Delete Book</th>
+
+            </tr>
+            <tr  ng-repeat="book in books">
+                    <td>{{book.title}}</td>
+                    <td>{{book.author}}</td>
+                    <td>{{book.subject}}</td>
+                    <td>{{book.location}}</td>
+                    <td>{{book.totalCopies}}</td>
+                    <td>{{book.availableCopies}}</td>
+                    <td><input type="checkbox" ng-click="deleteBook(book._id)"/>  </td>
+
+            </tr>   
+
+
+
+        </table>
+            </div>
+    </form>
+

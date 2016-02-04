@@ -1,0 +1,85 @@
+    <style>
+     .addTitle {
+                   font-size:20px;
+                   color:cadetblue;
+                   padding-top: 10px;
+              }
+        .msg{
+            color:aquamarine;
+            font-size:15px;
+        }
+         p{
+            color:cadetblue;
+            font-size:25px;
+        }
+        .message{
+            color:yellow;
+        }
+
+    </style>
+
+
+    <p class="addTitle">Add Books here </p>
+    <form name="addForm" class="form-horizontal">
+
+        <div class="form-group form-inline">
+                            <label for="bookTitle" class="sr-only">Title</label>
+                            <input type="text" class="form-control" name="title" placeholder="Title" ng-model="book.title" minlength="5" required />
+            <div class="msg"ng-messages="addForm.title.$error" >
+                <div ng-message="required">You did not enter a field</div>
+                <div ng-message="minlength">The value entered is too short</div>
+        </div>
+
+
+
+            <label for="bookAuthor" class="sr-only">Author</label>               <input type="text" class="form-control" name="author" placeholder="Author"  ng-model ="book.author" minlength="5"required/>
+            <div class="msg" ng-messages="addForm.author.$error">
+                <div ng-message="required">You did not enter a field</div>
+         <div ng-message="minlength">The value entered is too short</div>
+        </div>
+
+         <label for="bookSubject" class="sr-only">Copies</label>               <input type="text" class="form-control" name="subject" placeholder="Subject" ng-model="book.subject" required/>
+             <div class="msg"ng-messages="addForm.subject.$error">
+                 <div ng-message="required">You did not enter a field</div>
+
+        </div>
+
+            <label for="bookLocation" class="sr-only">Location</label>               <input type="text" class="form-control" name="location" placeholder="Location" ng-model= "book.location"  required/>
+             <div class="msg"ng-messages="addForm.location.$error">
+                 <div ng-message="required" >You did not enter a field</div>
+
+        </div>
+
+
+
+            <label for="bookCopies" class="sr-only">Copies</label>               <input type="text" class="form-control" name="totalCopies" placeholder="Number of copies" ng-model="book.totalCopies"  required/>
+             <div class="msg"ng-messages="addForm.totalCopies.$error">
+                 <div ng-message="required" >You did not enter a field</div>
+
+        </div>
+
+
+                 <label for="bookAvailableCopies" class="sr-only">Copies</label>               <input type="text" class="form-control" name="availableCopies" placeholder="copies available" ng-model="book.availableCopies"  required/>
+             <div class="msg" ng-messages="addForm.availableCopies.$error">
+                 <div ng-message="required" >You did not enter a field</div>
+
+        </div>
+
+            <div>
+           <button type="button" class="btn btn-success" ng-click="addBook()">Add</button>
+                <p class="message" ng-show=checked=="checked">{{message}} Please add the next book</p>
+
+            </div> 
+            </div>
+
+
+
+
+
+    </form>
+
+    <!--<button type="button" class="btn btn-success"><span class="glyphicon glyphicon-search "/></button>-->
+
+
+
+

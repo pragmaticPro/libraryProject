@@ -1,0 +1,34 @@
+
+<style>
+.addTitle {
+               font-size:20px;
+               color:cadetblue;
+               padding-top: 10px;
+          }
+    
+    h3{
+        color:yellow;
+    }
+
+</style>
+
+
+<div class = "container" ng-controller="loginController as login">
+<p class="addTitle">login to avail our services </p>
+    <form method="post" class="form-horizontal form-signin" ng-submit="login.doLogin()" >
+    
+    <div class="form-group form-inline">
+        <div>
+        <input type ="text" name ="email" class="form-control" placeholder="email"ng-model="login.loginData.email"/></div></br>
+        <div>
+    <input type="text" name="password" placeholder="password" class="form-control" ng-model="login.loginData.password"/></div></br>
+    <div>
+    <input type="submit" class="btn btn-success"></input></div>
+    </div>
+       <h3>{{login.error}}</h3>
+        <h3>{{login1.error}}</h3>
+    </form>
+
+
+</div>
+

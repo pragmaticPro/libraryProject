@@ -1,0 +1,106 @@
+
+    <style>
+        .form{
+           font-size:20px;
+           color:aqua;
+        }
+        .table th {
+            text-align:center;
+            padding: 15px;
+        }
+        tr td{
+            color:cornflowerblue;  
+            padding: 15px;
+        }
+
+
+    </style>  
+
+    <form class="form">
+<div class ="container" >
+    <table class="table" ng-init="showHiredBooks('Book rented')">
+    <table class="table" ng-repeat="hiredbook in hiredBooks">
+        
+<h3> Hired Book List</h3>
+    <tr class="row">
+        <th>Title</th>
+        <th>Author</th>
+        
+    </tr>
+    <tr class="row">
+        <td>{{hiredbook.title}}</td>    
+        <td>{{hiredbook.author}}</td>
+    
+    </tr>
+    <tr class="row">
+        <th>Username</th>
+        <th>Return Date</th>
+    </tr>
+    <tr class="row" ng-repeat="h in hiredbook.hiredCopies">
+        <td>{{h.username}}</td>
+        <td>{{h.returnDate}}</td>
+    </tr>
+       
+        
+ 
+    
+    </table>
+    </table>
+   </div>
+  </form>
+
+
+<!--
+
+        <table class="table" ng-init="userCtrl.getProfile()">
+            
+        <table class="table" ng-repeat ="user in userCtrl.users">
+            
+        <h3>Books Hired</h3>  
+            <tr class="row">
+                <th>Title</th>
+                <th>Author</th>
+                <th>Return Date </th>
+                <th>Return </th>
+                <th>Status </th>
+                <th>Penalty </th>
+
+            </tr>
+            <tr class="row" ng-repeat="book in user.bookHiringHistory">
+
+                <td>{{book.title}}</td>
+                <td>{{book.author}}</td>
+                <td>{{book.returnDate}}</td>
+        <td><input type="checkbox" ng-click="userCtrl.returnBook(book.title);userCtrl.updateStock(book)" ng-show=!book.checked /></td>
+                <td>{{book.status}}</td>
+                <td>{{book.penalty}}</td>
+                <p>{{userCtrl.message}}</p>
+            </tr>
+        </table>  
+
+
+
+        </table>
+-->
+
+
+
+<!--
+                <form class="form">
+                    <div class="hello table-responsive table table-condensed">
+                        <button type="button" class="btn btn-success btn-lg" ng-click="showHiredBooks('Book rented')">View Hired Book List</button>  
+      <h3> Hired Book List</h3>
+                <ul class ="booklist list-group"ng-repeat="hiredbook in hiredBooks">
+                   <h4 class="list-group-item-heading">Title</h4>
+                    <li class="booklistitem list-group-item">{{hiredbook.title}}</li>
+                    <h4 class="list-group-item-heading">Author</h4>
+                    <li class="booklistitem list-group-item">{{hiredbook.author}}</li>
+
+                        <ul class ="booklist list-group" ng-repeat="h in hiredbook.hiredCopies">
+                            <h4 class="list-group-item-heading">user</h4>
+                                <li class="booklistitem list-group-item">{{h.username}}</li>
+                            <h4 class="list-group-item-heading">returnDate</h4>
+                            <li class="booklistitem list-group-item">{{h.returnDate}}</li>
+                        </ul>
+
+                   </ul>-->
