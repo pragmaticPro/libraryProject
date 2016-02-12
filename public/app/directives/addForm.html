@@ -15,6 +15,10 @@
         .message{
             color:yellow;
         }
+        
+         textarea.form-control {
+             height: 100%;
+        }
 
     </style>
 
@@ -64,6 +68,11 @@
                  <div ng-message="required" >You did not enter a field</div>
 
         </div>
+            
+            
+                <label for="body" class="sr-only">Copies</label>               <textarea class="form-control" name="body" placeholder="book text" ng-model="book.body" required/>
+            
+            
 
             <div>
            <button type="button" class="btn btn-success" ng-click="addBook()">Add</button>

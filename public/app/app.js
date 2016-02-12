@@ -1,4 +1,4 @@
-        var myapp = angular.module('myapp',['ngRoute','ngMessages','ngResource','authService','userService'])
+        var myapp = angular.module('myapp',['ngRoute','ngMessages','ngResource','bookService','authService','userService'])
 
         myapp.config(function($httpProvider){
             $httpProvider.interceptors.push('AuthInterceptor');
@@ -43,10 +43,10 @@
 
             })
 
-            .when("/events",{
+            .when("/readBook",{
 
-                templateUrl:'events.html',
-                controller:'eventsController'
+                templateUrl:'readBook.html',
+                controller:'searchController'
 
             })
 
@@ -244,20 +244,51 @@
 
 
 
-        myapp.controller("newsController",['$scope','$log','$filter','$resource','bookService',function($scope,$log,$filter,$resource,bookService){
+        myapp.controller("newsController",['$scope','$log','$filter','$resource',function($scope,$log,$filter,$resource){
 
         }]);
 
 
+myapp.controller("eventsController", ['$scope','$log','$resource','$filter',function($scope,$log,$resource,$filter){
+    
+    $scope.word ="";
+    $scope.speak = function(word){
+         var msg = new SpeechSynthesisUtterance(word);
+        window.speechSynthesis.speak(msg);
+    
+    }
+   
 
-        myapp.controller("eventsController",['$scope','$log','$filter','$resource','bookService',function($scope,$log,$filter,$resource,bookService){
+    
+   
+    
+//travelPlanner.controller("countriesController", ['$scope','$log','$resource','$filter','sharedProperties',function($scope,$log,$resource,$filter,sharedProperties){
+//    
+//    $scope.countryName ='';
+//    $scope.checked='';
+//    
+//    $scope.getAPI = function(country){
+//    $scope.countryAPI =$resource("https://restcountries-v1.p.mashape.com/name/:name?mashape-key=13LucHtvfdmshcRGtkIIa97UFqGxp1YRPgHjsnVJxnbS7QIify",{name:"@name"},{ callback: "JSON_CALLBACK" }, { query: { method: "GET",isArray:true   }});
+//    
+//    $scope.countryResult=$scope.countryAPI.query({name:country});
+//    //console.log($scope.countryResult.name);
+//    $scope.checked='checked';
+//    //console.log("selectedDestination"+$scope.getValue());
+//}    
+//    
+//    
+//}]); // end of controller
+    
+}]);
+////////////////////////////////////////////////////////////////////
 
 
-        }]);
 
 
-        myapp.controller("searchController",['$scope','$http','$log','$filter','$resource','Auth','User',function($scope,$http,$log,$filter,$resource,Auth,User){
 
+        myapp.controller("searchController",['$scope','$http','$log','$filter','$resource','BookSer','Auth','User',function($scope,$http,$log,$filter,$resource,BookSer,Auth,User){
+            
+            $scope.title ="search books";
 
              var vm = this;                                
             $scope.searchTitle = function(title){
@@ -336,6 +367,26 @@
                       console.log('Error:'+ data);
                   });
               };
+            
+            $scope.readMe = function(book){
+                
+                $scope.author = book.author;
+                $scope.title = book.title;
+                $scope.booktext = book.body;
+                var msg = new SpeechSynthesisUtterance(book.body);
+                window.speechSynthesis.speak(msg);
+               
+    
+            };
+            // put to service
+            $scope.loadMe = function(book){
+               BookSer.loadBook(book);
+            };
+            // get from service
+            $scope.unloadMe = function(){
+             return BookSer.getloadedBook()
+            };
+   
 
         }]); // search controller
 
@@ -343,7 +394,7 @@
         myapp.controller("addBooksController",['$scope','$http','$log','$filter','$resource',function($scope,$http,$log,$filter,$resource){
             // these 4 variables will do  data binding, html has ng-modal with same names
             $scope.book ={};
-
+         
 
             // assigning values from ng-modal data bound variables to book object
             $scope.addBook = function(){

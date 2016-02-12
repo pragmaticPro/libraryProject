@@ -37,7 +37,7 @@
 
     </style>
 
-
+{{title}}
     <p class="searchTitle">Search Books here </p>
     <form>
         <div class="form-group form-inline">
@@ -80,21 +80,26 @@
 
 
         <form class="form" >
-        <div class="table-responsive"  ng-show=updated==="checked"> 
+        <div class="table-responsive"  > 
             <h3>Books Hired </h3>
         <table class="table table-condensed">
               <tr>
                 <th>Title</th>
                 <th>Author</th>
-                <th>Return Date</th>   
+                <th>Read Online</th>
+                <th>Return Date</th> 
+                
             </tr>
             <tr  ng-repeat="book in user.bookHiringHistory">
                     <td>{{book.title}}</td>
                     <td>{{book.author}}</td>
-                    <td>{{book.returnDate}}</td>
+                    <td>{{book.body}}</td>
+<!--                    <td>{{book.returnDate}}</td>-->
+                <td><button type="button" class="btn btn-success" ng-if=book.body><a href="#/readBook" ng-click="loadMe(book)">Read Me</a></button></td>
+                   
             </tr>   
 
-            
+
 
 
         </table>

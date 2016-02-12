@@ -78,12 +78,12 @@
       <!-- load angular via CDN -->
       	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 
-
-
+     
          <script src="//code.angularjs.org/1.3.15/angular.min.js"></script>
         <script src="//code.angularjs.org/1.3.15/angular-resource.min.js"></script>
         <script src="//code.angularjs.org/1.3.15/angular-route.min.js"></script>
       <script src="//code.angularjs.org/1.3.15/angular-messages.min.js"></script>
+      <script src="../service/bookService.js"></script>
       <script src="../service/authService.js"></script>
       <script src="../service/userService.js"></script>
       <script src="../app.js"></script>
@@ -113,17 +113,18 @@
                 <div class="collapse navbar-collapse" id="library-navbar">          <ul class="nav navbar-nav menu-items">
                   
                    <li><a href="#/search">Search Books</a></li>
-                   
-<!--                <li><a href="#/showBooks">View Collection</a></li>                     <li><a href="#/addBooks">Add To Collection</a></li>-->
-<!--                    <li><a href="#/returns">Book Returns</a></li>-->
-<!--
-                    <li><a href="#/news">Library News</a></li>
-                    <li><a href="#/events">Upcoming Events</a></li>
-                    <li><a href="#/register">Register With Us</a></li>
--->
+            
                     <li><a href="#/return">Book Returns</a></li>
                      <li><a href="#">Contact Us</a></li>
-                     <li>
+                    <li><a href="#/events">Library Events</a></li>
+                     
+                     <li ng-if="!login.loggedIn"><a href="#/login">Login</a></li>
+<li ng-if="!login.loggedIn"><a href="#/register">Register</a></li>
+<li ng-if="login.loggedIn"><a href="#">Hello {{login.user.username}}</a></li>
+<li ng-if="login.loggedIn"><a href="#" ng-click="login.logout()">Logout</a>
+<li ng-if="login.loggedIn"><a href="#/changePassword">Change Password</a>                    
+</li>
+                    <li>
                         <a href="#" data-toggle="dropdown" class="dropdown-toggle">Admin Only<span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="#/addBooks">Add Stock</a></li>
@@ -132,12 +133,6 @@
                             <li><a href="#/showUsers">All Users</a></li>
                         </ul>
                     </li>
-                     <li ng-if="!login.loggedIn"><a href="#/login">Login</a></li>
-<li ng-if="!login.loggedIn"><a href="#/register">Register</a></li>
-<li ng-if="login.loggedIn"><a href="#">Hello {{login.user.username}}</a></li>
-<li ng-if="login.loggedIn"><a href="#" ng-click="login.logout()">Logout</a>
-<li ng-if="login.loggedIn"><a href="#/changePassword">Change Password</a>                    
-</li>
                   </ul>
 <!--
                 

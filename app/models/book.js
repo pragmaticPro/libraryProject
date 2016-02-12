@@ -15,6 +15,7 @@ var BookSchema = new Schema({
        
    }],
    hireBookDetails: {type:String,default:"none"},
+   body:{type:String}
   
    
 

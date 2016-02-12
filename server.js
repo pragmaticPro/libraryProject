@@ -216,6 +216,7 @@
                 location:req.body.location,
                 totalCopies :req.body.totalCopies,
                 availableCopies: req.body.availableCopies,
+                body: req.body.body,
                 checked: true
 
             });
@@ -339,7 +340,9 @@
                 var len = user.bookHiringHistory.length;
         user.bookHiringHistory.push({
             'title':book.title,
-            'author':book.author});
+            'author':book.author,
+            'body':book.body
+            });
             //'returnDate':book.hiredCopies[len].returnDate});
                  user.save(function(err){
                     if(err) res.send(err);
@@ -421,6 +424,19 @@
 
 
 
+    });
+
+    // read book - speak
+    router.get('/readBook/:book_id',function(req,res){
+            Book.findById(req.params.book_id,function(err,book){
+                if(err) res.send(err);
+                else{
+                    res.send(book.body);
+                }
+            });
+        
+        
+        
     });
 
 

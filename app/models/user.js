@@ -8,7 +8,7 @@ var UserSchema = new Schema ({
     email:{type:String , required:true, index:{unique:true}},
     password:{type:String, required:true},
     admin:Boolean,
-    bookHiringHistory: [{title:String,author:String,returnDate:Date,
+    bookHiringHistory: [{title:String,author:String,returnDate:Date,body:String,
                          status:{type:String,default:"Issued"},penalty:{type:Number, default:0}}]
     
 });
