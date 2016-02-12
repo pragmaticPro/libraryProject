@@ -12,15 +12,11 @@
     "body-parser": "^1.14.2",
     "express": "^4.13.3",
     "mongoose": "^4.3.6",
-    "morgan": "^1.6.1",
+    "morgan": "^1.6.1"
   },
   "devDependencies": {
     "bower": "^1.7.7",
     "jasmine": "^2.4.1",
-    "karma": "^0.13.19",
-    "jasmine-core": "^2.4.1",
-    "karma-jasmine": "^0.3.7",
-    "karma-phantomjs-launcher": "^1.0.0",
-    "phantomjs-prebuilt": "^2.1.4"
+    "karma": "^0.13.19"
   }
 }

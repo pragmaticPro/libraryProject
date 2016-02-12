@@ -1,5 +1,6 @@
-        var myapp = angular.module('myapp',['ngRoute','ngMessages','ngResource','bookService','authService','userService'])
+            var myapp = angular.module('myapp',['ngRoute','ngMessages','ngResource','bookService','authService','userService'])
 
+        // login first and then access library services    
         myapp.config(function($httpProvider){
             $httpProvider.interceptors.push('AuthInterceptor');
         })
@@ -163,8 +164,9 @@
         });
 
 
-        myapp.controller("registerController",['$location','$window','User',function($location,$window,User){
+        myapp.controller("registerController",['$scope','$location','$window','User',function($scope,$location,$window,User){
 
+            $scope.title ="register controller";
             var vm = this;
             vm.signupUser = function(){
                 vm.message ='';

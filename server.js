@@ -426,18 +426,6 @@
 
     });
 
-    // read book - speak
-    router.get('/readBook/:book_id',function(req,res){
-            Book.findById(req.params.book_id,function(err,book){
-                if(err) res.send(err);
-                else{
-                    res.send(book.body);
-                }
-            });
-        
-        
-        
-    });
 
 
         // get user id
